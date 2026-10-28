@@ -6,7 +6,7 @@ public class MatrixOps {
     /**
      * Константа, определяющая размеры матрицы
      */
-    public static int ROWS_LENGTH = 4;
+    public static final int ROWS_LENGTH = 4;
 
     /**
      * Метод, определяющий сумму матрицы
@@ -32,7 +32,7 @@ public class MatrixOps {
      */
     public static long sumOfMainDiag(int[][] matrix) {
         long sum = 0;
-        for (int i = 0; i < ROWS_LENGTH; i++) {
+        for (int i = 0; i < matrix.length; i++) {
             sum += matrix[i][i];
         }
         return sum;
@@ -46,8 +46,8 @@ public class MatrixOps {
      */
     public static long sumOfAntiDiag(int[][] matrix) {
         long sum = 0;
-        for (int i = 0; i < ROWS_LENGTH; i++) {
-            sum += matrix[i][ROWS_LENGTH - 1 - i];
+        for (int i = 0; i < matrix.length; i++) {
+            sum += matrix[i][matrix.length - 1 - i];
         }
         return sum;
     }
@@ -59,7 +59,7 @@ public class MatrixOps {
      * @return - Массив максимальных элементов в каждой строке
      */
     public static int[] maxElementInRow(int[][] matrix) {
-        int[] max = new int[ROWS_LENGTH];
+        int[] max = new int[matrix.length];
         for (int i = 0; i < matrix.length; i++) {
             int maxElement = matrix[i][0];
             for (int j = 0; j < matrix[i].length; j++) {
@@ -79,10 +79,13 @@ public class MatrixOps {
      * @return - Массив сумм элементов каждого столбца
      */
     public static long[] sumOfEachColumn(int[][] matrix) {
-        long[] sumArray = new long[ROWS_LENGTH];
-        for (int j = 0; j < matrix.length; j++) {
+        int rows = matrix.length;
+        int columns = matrix[0].length;
+        long[] sumArray = new long[columns];
+
+        for (int j = 0; j < columns; j++) {
             long sum = 0;
-            for (int i = 0; i < matrix.length; i++) {
+            for (int i = 0; i < rows; i++) {
                 sum += matrix[i][j];
             }
             sumArray[j] = sum;

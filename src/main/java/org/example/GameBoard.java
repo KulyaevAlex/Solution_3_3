@@ -7,6 +7,11 @@ public class GameBoard {
     public static final int SIZE_OF_BOARD = 8;
 
     /**
+     * Константа, определяющая количество ферзей
+     */
+    public static final int NUMBER_OF_QUEENS = 8;
+
+    /**
      * Метод вывода шахматной доски
      *
      * @param board - Входной двумерный массив
@@ -56,7 +61,7 @@ public class GameBoard {
         System.out.println();
         System.out.println("Добавим ферзей на первую строку");
         System.out.println();
-        for (int j = 0; j < SIZE_OF_BOARD; j++) {
+        for (int j = 0; j < NUMBER_OF_QUEENS; j++) {
             board[0][j] = 'Q';
         }
         printBoard(board);
